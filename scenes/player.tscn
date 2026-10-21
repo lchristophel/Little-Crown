@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d3on2ft2lfrfy" path="res://art/playerGrey_up1.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://c1qxnt1q1rhvk" path="res://player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://lhuuilfpim1l" path="res://art/playerGrey_up2.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://c5hqmrvq817h5" path="res://art/playerGrey_walk1.png" id="4_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://cpwwf64aigv1g" path="res://art/playerGrey_walk2.png" id="5_tuyoq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
 animations = [{
@@ -17,7 +19,13 @@ animations = [{
 "name": &"up",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qlg0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tuyoq")
+}],
 "loop": 1,
 "name": &"walk",
 "speed": 5.0
@@ -28,13 +36,14 @@ radius = 5.0
 height = 16.0
 
 [node name="Player" type="Area2D" unique_id=1864919361]
+scale = Vector2(5, 5)
 script = ExtResource("1_qhqgy")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1054519151]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xrivr")
-animation = &"up"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735055834]
 shape = SubResource("CapsuleShape2D_xrivr")
